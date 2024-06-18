@@ -258,7 +258,7 @@ MqttObjectState::isPolling() const {
 MqttObject::MqttObject(const std::string& pTopic)
     : mTopic(pTopic)
 {
-    mStateTopic = mTopi;
+    mStateTopic = mTopic;
     mAvailabilityTopic = "/availability" + mTopic;
 };
 
