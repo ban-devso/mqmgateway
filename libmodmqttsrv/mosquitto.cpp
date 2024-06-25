@@ -1,6 +1,6 @@
 #include <cstring>
 
-#include <thread> // Для использования std::thread
+
 #include "mosquitto.hpp"
 #include "exceptions.hpp"
 #include "mqttclient.hpp"
@@ -168,9 +168,7 @@ Mosquitto::subscribe(const char* topic) {
 void 
 Mosquitto::publish(const char* topic, int len, const void* data) {
     int msgId;
-    std::thread([this, topic, len, data, &msgId]() {
-        mosquitto_publish(mMosq, &msgId, topic, len, data, 0, true);
-    }).detach();
+    mosquitto_publish(mMosq, &msgId, topic, len, data, 0, true);
 }
 
 
